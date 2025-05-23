@@ -1,9 +1,10 @@
 # Honey Clicker
  
 ## How to start
- 1. `npm run dev`
- 2. go to `http://localhost:5173/`
- 3. wait a little bit
+ 1. `npm install`
+ 2. `npm run dev`
+ 3. go to `http://localhost:5173/`
+ 4. wait a little bit
 
 
 ## What used
