@@ -17,7 +17,7 @@ export const Navbar = ({ children }: Props) => {
         <Link to="/">
           <LogoContainer>
             <LogoImage alt="logo" src={HoneyJar} />
-            <LogoTxt>Honey Clicker</LogoTxt>
+            <LogoTxt>HoneyClicker</LogoTxt>
           </LogoContainer>
         </Link>
         <AboutLink to="/about">Инфо</AboutLink>
@@ -63,8 +63,8 @@ const LogoImage = styled.img`
 `;
 
 const AboutLink = styled(Link)`
-  font-size: 22px;
-  margin-left: 30px;
+  font-size: 20px;
+  margin-left: 15px;
   color: ${colorPalette.orange};
   text-decoration: underline;
   transition: 0.3s text-shadow;
@@ -74,8 +74,8 @@ const AboutLink = styled(Link)`
 `;
 
 const LeaderboardLink = styled(Link)`
-  font-size: 22px;
-  margin-left: 20px;
+  font-size: 20px;
+  margin-left: 15px;
   color: ${colorPalette.orange};
   text-decoration: underline;
   transition: 0.3s text-shadow;

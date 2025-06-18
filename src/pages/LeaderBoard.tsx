@@ -90,6 +90,7 @@ const PlayerRow = styled.div`
 const Position = styled.span`
   width: 24px;
   font-weight: bold;
+  color: black;
 `;
 
 const Avatar = styled.img`
@@ -102,6 +103,7 @@ const Avatar = styled.img`
 const Name = styled.span`
   flex-grow: 1;
   text-align: left;
+  color: black;
 `;
 
 const Score = styled.span`
