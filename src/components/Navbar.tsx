@@ -21,6 +21,7 @@ export const Navbar = ({ children }: Props) => {
           </LogoContainer>
         </Link>
         <AboutLink to="/about">Инфо</AboutLink>
+        <LeaderboardLink to="/leaderboard">Лидеры</LeaderboardLink>
         {children}
       </Nav>
       <div style={{ paddingTop: "110px" }} />
@@ -64,6 +65,17 @@ const LogoImage = styled.img`
 const AboutLink = styled(Link)`
   font-size: 22px;
   margin-left: 30px;
+  color: ${colorPalette.orange};
+  text-decoration: underline;
+  transition: 0.3s text-shadow;
+  &:hover {
+    text-shadow: 0px 0px 12px ${colorPalette.orange};
+  }
+`;
+
+const LeaderboardLink = styled(Link)`
+  font-size: 22px;
+  margin-left: 20px;
   color: ${colorPalette.orange};
   text-decoration: underline;
   transition: 0.3s text-shadow;

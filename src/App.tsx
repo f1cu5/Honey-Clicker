@@ -9,6 +9,7 @@ import { ThemeProvider } from "@mui/material";
 import { GlobalStyle, MuiTheme } from "./styles";
 import { ToastContainer } from "react-toastify";
 import { NotFound } from "./pages/NotFound";
+import { LeaderBoard } from "./pages/LeaderBoard";
 import { MainLayout } from "./layouts/MainLayout";
 function App() {
   const [userProfile, setUserProfile] = useStorageState<User>(
@@ -23,6 +24,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Game {...userProfileProps} />} />
           <Route path="/about" element={<About />} />
+          <Route path="/leaderboard" element={<LeaderBoard />} />
           <Route path="/settings" element={<Settings {...userProfileProps} />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
