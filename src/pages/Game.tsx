@@ -23,6 +23,7 @@ import ClickSound from "../assets/sounds/click.mp3";
 import { UserProfileProps } from "../types/userProfileProps";
 import { Share, WifiOff } from "@mui/icons-material";
 import { useOnlineStatus } from "../hooks";
+import { LeaderboardPlayer } from "../types/leaderboard";
 
 export const Game = ({ userProfile, setUserProfile }: UserProfileProps) => {
   const userProfileProps = { userProfile, setUserProfile };
@@ -170,6 +171,35 @@ export const Game = ({ userProfile, setUserProfile }: UserProfileProps) => {
       setClicks(0);
     }
   }, [userProfile]);
+
+  // update leaderboard stored in localStorage
+  useEffect(() => {
+    if (userProfile.name !== null) {
+      const stored = window.localStorage.getItem("leaderboard");
+      let data: LeaderboardPlayer[] = [];
+      if (stored) {
+        try {
+          data = JSON.parse(stored);
+        } catch (err) {
+          console.error("Failed to parse leaderboard", err);
+        }
+      }
+      const entry: LeaderboardPlayer = {
+        userID: String(userProfile.createdAt),
+        displayName: userProfile.name,
+        picture: userProfile.profilePicture,
+        score: userProfile.maxPoints,
+      };
+      const idx = data.findIndex((p) => p.userID === entry.userID);
+      if (idx !== -1) data[idx] = entry; else data.push(entry);
+      window.localStorage.setItem("leaderboard", JSON.stringify(data));
+    }
+  }, [
+    userProfile.maxPoints,
+    userProfile.name,
+    userProfile.profilePicture,
+    userProfile.createdAt,
+  ]);
 
   const handleShareClick = async () => {
     //unlock share achievement
